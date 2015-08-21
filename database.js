@@ -37,7 +37,11 @@ module.exports = {
       error(err);
       client.query("UPDATE status SET user_status = '"+user_status+"', timestamp = '"+timestamp+"' WHERE user_name = '"+user_name+"'", function(err, result) {
         done();
-        request.post(postURL, { json: { text: "*"+user_name + ":* " + user_status}});
+        if (user_name == 'aidanfeay'){
+          request.post(postURL, { json: { text: "*"+user_name + ":* " + user_status, channel: '#editorial-products'}});
+        } else {
+          request.post(postURL, { json: { text: "*"+user_name + ":* " + user_status}});
+        }
         return res.status(200).send("Status set: " + user_status);
         error(err);
       });

@@ -1,7 +1,7 @@
 var pg = require('pg');
 var request = require('request');
 var conString = process.env.DATABASE_URL;
-var postURL = 'https://hooks.slack.com/services/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';
+var postURL = 'https://hooks.slack.com/services/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';
 var error = function(err){
   if(err) {
     return console.error('error!', err);

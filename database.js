@@ -36,9 +36,9 @@ module.exports = {
     pg.connect(conString, function(err, client, done) {
       error(err);
       client.query("UPDATE status SET user_status = '"+user_status+"', timestamp = '"+timestamp+"' WHERE user_name = '"+user_name+"'", function(err, result) {
+        done();
         request.post(postURL, { json: { text: user_name + ": " + user_status}});
         return res.status(200).send("Status set: " + user_status);
-        done();
         error(err);
       });
     });
@@ -49,12 +49,13 @@ module.exports = {
     pg.connect(conString, function(err, client, done) {
       error(err);
       client.query("SELECT * FROM status WHERE user_name = '"+user_name+"'", function(err, result) {
+        done();
         if (result.rows[0]) {
           return res.status(200).send("Status for " + user_name + ": " + result.rows[0].user_status);
         } else {
           return res.status(200).send("Status for " + user_name + " has not been set.");
         }
-        done();
+        error(err);
       });
     });
   }

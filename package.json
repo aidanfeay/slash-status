@@ -1,0 +1,30 @@
+{
+  "name": "slash-status",
+  "version": "1.0.0",
+  "description": "status utility for slack",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.x.x",
+    "ejs": "^2.3.1",
+    "express": "^4.x.x",
+    "pg": "4.4.1",
+    "request": "2.60.x"
+  },
+  "scripts": {
+    "start": "app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alfeay/slash-status.git"
+  },
+  "keywords": [
+    "status"
+  ],
+  "author": "Aidan Feay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alfeay/slash-status/issues"
+  },
+  "homepage": "https://github.com/alfeay/slash-status#readme"
+}

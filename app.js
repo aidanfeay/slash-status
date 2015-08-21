@@ -7,8 +7,9 @@ var app = express();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', function (req, res) { res.status(200).send('bots!') });
+app.get('/', function (req, res) { res.status(200).send('slash-status!') });
 app.post('/status', statusbot);
+
 database.createTable();
 
 app.use(function (err, req, res, next) {

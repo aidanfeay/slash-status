@@ -60,8 +60,10 @@ module.exports = {
       error(err);
       client.query("UPDATE status SET defaultChan = '"+defaultChan+"' WHERE user_name = '"+user_name+"'", function(err, result) {
         done();
+        console.log("setChannel Result");
+        console.log(result);
         if (result.rows[0]) {
-          return res.status(200).send("Default channel for " + user_name + ": " + result.rows[0].defaultChan);
+          return res.status(200).send("Default channel for " + user_name + ": " + defaultChan);
         } else {
           return res.status(200).send("Default channel for " + user_name + " has not been set.");
         }

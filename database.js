@@ -58,10 +58,8 @@ module.exports = {
     var output;
     pg.connect(conString, function(err, client, done) {
       error(err);
-      client.query("UPDATE status SET defaultChan = '"+defaultChan+"' WHERE user_name = '"+user_name+"'", function(err, result) {
+      client.query("UPDATE status SET prefchan = '"+defaultChan+"' WHERE user_name = '"+user_name+"'", function(err, result) {
         done();
-        console.log("setChannel Result");
-        console.log(result);
         if (result.rows[0]) {
           return res.status(200).send("Default channel for " + user_name + ": " + defaultChan);
         } else {

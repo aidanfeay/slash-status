@@ -1,5 +1,10 @@
 # slash-status
 A slash command Slack integration for advanced user statuses
+## commands 
+* `/<slashcommand> #<channel>` to change the personal default WAB output channel to match your group or team. You only have to set this once.
+* Statuses can be set with `/<slashcommand> <status>` (e.g. “/wab leaving for an offsite meeting” or “/wab at the dentist, be back at 3.”) Be sure to change your status “back at desk” (or BAD) after returning!
+* Users can recall any updates from another user with `/<slashcommand> @<username>`.
+
 ## basic usage
 To get started, simply clone/fork this repository and modify the `postURL` in `database.js` to link your local instance to a specific slack group. Then, initialize a postgres instance and run `node app.js`.
 ## detailed usage

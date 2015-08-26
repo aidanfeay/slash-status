@@ -1,9 +1,9 @@
 # slash-status
 A [Slack](https://slack.com) integration that allows users to store their temporary whereabouts and allows other users to retrieve those statuses on demand. It posts to designated channels as well, providing a live feed of where people are throughout the day. It's essentially the away message that Slack is missing.
 ## commands 
-* `/<slashcommand> #<channel>` to change the personal default WAB output channel to match your group or team. You only have to set this once.
-* Statuses can be set with `/<slashcommand> <status>` (e.g. “/wab leaving for an offsite meeting” or “/wab at the dentist, be back at 3.”) Be sure to change your status “back at desk” (or BAD) after returning!
-* Users can recall any updates from another user with `/<slashcommand> @<username>`.
+* `/<slashcommand> <status>`: Set your status (e.g. “/<slashcommand> leaving for an offsite meeting” or “/<slashcommand> at the dentist, be back at 3.”) Don't forget to change your status “back at desk” (or BAD) after returning!
+* `/<slashcommand> @<username>`: Recall a user's most recent status.
+* `/<slashcommand> #<channel>`: Change your default output channel.
 
 ## basic usage
 To get started, simply clone/fork this repository and modify the `postURL` in `database.js` to link your local instance to a specific slack group. Then, initialize a postgres instance and run `node app.js`.

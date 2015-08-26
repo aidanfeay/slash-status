@@ -19,7 +19,7 @@ To get started, simply clone/fork this repository and modify the `postURL` in `d
 ## prolonged usage
 The above instructions only run a local instance of the bot. For prolonged usage, an external server (like [Heroku](http://heroku.com)) is advised.
 
-## license
+## BSD license
 Copyright (c) 2015, Aidan Feay (@aidanfeay)
 
 All rights reserved.

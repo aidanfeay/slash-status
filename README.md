@@ -1,5 +1,5 @@
 # slash-status
-A slash command Slack integration for advanced user statuses
+A [Slack](https://slack.com) integration that allows users to store their temporary whereabouts and allows other users to retrieve those statuses on demand. It posts to designated channels as well, providing a live feed of where people are throughout the day. It's essentially the away message that Slack is missing.
 ## commands 
 * `/<slashcommand> #<channel>` to change the personal default WAB output channel to match your group or team. You only have to set this once.
 * Statuses can be set with `/<slashcommand> <status>` (e.g. “/wab leaving for an offsite meeting” or “/wab at the dentist, be back at 3.”) Be sure to change your status “back at desk” (or BAD) after returning!

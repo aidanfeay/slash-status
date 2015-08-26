@@ -15,7 +15,8 @@ To use, simply clone this repository and modify the `postURL` in `database.js` t
 The above instructions only run a local instance of the bot. For prolonged usage, an external server (like [Heroku](http://heroku.com)) is advised.
 
 ## license
-Copyright (c) 2015, Aidan Feay
+Copyright (c) 2015, Aidan Feay (@aidanfeay)
+
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

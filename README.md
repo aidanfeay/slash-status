@@ -1,9 +1,9 @@
 # slash-status
 A slash command Slack integration for advanced user statuses
 ## basic usage
-To use, simply clone this repository and modify the `postURL` in `database.js` to link your local instance to a specific slack group. Then, initialize a postgres instance and run `node app.js`.
+To get started, simply clone/fork this repository and modify the `postURL` in `database.js` to link your local instance to a specific slack group. Then, initialize a postgres instance and run `node app.js`.
 ## detailed usage
-1. Clone this repo
+1. Clone/fork this repo
 2. `npm install`
 3. [Initialize a postgres instance](https://serversforhackers.com/using-postgresql)
 4. In Slack, [create a new slash command](http://slack.com/services/new/slash-commands) and link to your server.

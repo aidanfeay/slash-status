@@ -1,7 +1,7 @@
 # slash-status
 A [Slack](https://slack.com) integration that allows users to store their temporary whereabouts and allows other users to retrieve those statuses on demand. It posts to designated channels as well, providing a live feed of where people are throughout the day. It's essentially the away message that Slack is missing.
 ## commands 
-* `/<slashcommand> <status>`: Set your status (e.g. “/<slashcommand> leaving for an offsite meeting” or “/<slashcommand> at the dentist, be back at 3.”) Don't forget to change your status “back at desk” (or BAD) after returning!
+* `/<slashcommand> <status>`: Set your status (e.g. `/<slashcommand> leaving for an offsite meeting` or `/<slashcommand> at the dentist, be back at 3.`) Don't forget to change your status “back at desk” (or BAD) after returning!
 * `/<slashcommand> @<username>`: Recall a user's most recent status.
 * `/<slashcommand> #<channel>`: Change your default output channel.
 

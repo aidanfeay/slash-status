@@ -24,9 +24,11 @@ Database = {
     });
 
     client.hmset("user:" + user_name, {
-      status: user_status,
-      timestamp: timestamp
+      "status": user_status,
+      "timestamp": timestamp
     }, function (err, replies) {
+      console.log(err);
+      console.log(replies);
       client.hexists("user:" + user_name, "pref_chan", function(err,rep) {
         if(rep === 1) {
           client.hget("user:" + user_name, "pref_chan", function(err, rep) {

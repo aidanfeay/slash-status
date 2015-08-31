@@ -13,7 +13,7 @@ client.on("error", function (err) {
   console.log("Error " + err);
 });
 
-module.exports = {
+Database = {
   alertStatus: function(user_name, user_status, channel) {
     request.post(postURL, { json: { text: "*" + user_name + ":* " + user_status, channel: channel}});
   },
@@ -30,11 +30,11 @@ module.exports = {
       client.hexists("user:" + user_name, "pref_chan", function(err,rep) {
         if(rep === 1) {
           client.hget("user:" + user_name, "pref_chan", function(err, rep) {
-            alertStatus(user_name, user_status, rep);
+            Database.alertStatus(user_name, user_status, rep);
           });
         }
         else {
-          alertStatus(user_name, user_status, defaultChan);
+          Database.alertStatus(user_name, user_status, defaultChan);
         }
       });
 
@@ -50,3 +50,5 @@ module.exports = {
     client.hset("user:" + user_name, "pref_chan", channel);
   }
 }
+
+module.exports = Database;

@@ -7,16 +7,32 @@ client.auth(redisURL.auth.split(":")[1]);
 var request = require('request');
 var postUrl = process.env.POST_URL;
 
+var defaultChan = process.env.DEFAULT_CHAN;
+
 client.on("error", function (err) {
   console.log("Error " + err);
 });
 
 module.exports = {
-  addRow: function(user_name, user_id, user_status, timestamp, pref_chan){
-    client.hmset("user:" + user_name, "id", user_id, "status", user_status, "pref_chan", pref_chan, "timestamp", timestamp);
+  alertStatus: function(user_name, user_status, channel) {
+    request.post(postURL, { json: { text: "*" + user_name + ":* " + user_status, channel: channel}});
   },
   setStatus: function(res, user_name, user_status, timestamp){
-    client.hmset("user:" + user_name, "status", user_status, "timestamp", timestamp, function (err, replies) {
+    client.hmset("user:" + user_name,{
+      "status": user_status,
+      "timestamp": timestamp
+    }, function (err, replies) {
+      client.hexists("user:" + user_name, "pref_chan", function(err,rep) {
+        if(rep === 1) {
+          client.hget("user:" + user_name, "pref_chan", function(err, rep) {
+            alertStatus(user_name, user_status, rep);
+          });
+        }
+        else {
+          alertStatus(user_name, user_status, defaultChan);
+        }
+      });
+
       return res.status(200).send("Status set: " + user_status);
     });
   },
@@ -25,7 +41,7 @@ module.exports = {
       console.log(replies);
     });
   },
-  setChannel: function(res, user_name, defaultChan){
-    client.hset("user:" + user_name, "pref_chan", defaultChan);
+  setChannel: function(res, user_name, channel){
+    client.hset("user:" + user_name, "pref_chan", channel);
   }
 }

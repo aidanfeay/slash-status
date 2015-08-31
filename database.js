@@ -15,7 +15,7 @@ client.on("error", function (err) {
 
 Database = {
   alertStatus: function(user_name, user_status, channel) {
-    request.post(postUrl, { json: { text: "*" + user_name + ":* " + user_status, channel: channel}});
+    request.post(postUrl, { json: { text: "<@" + user_name + ">: " + user_status, channel: channel}});
   },
   setStatus: function(res, user_name, user_status, timestamp){
     client.hmset("user:" + user_name, {

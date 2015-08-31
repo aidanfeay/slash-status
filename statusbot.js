@@ -5,7 +5,7 @@ module.exports = function (req, res, next) {
   var user_name = req.body.user_name;
   var text = req.body.text;
   var timestamp = new Date().toLocaleString('en-US', {timeZone: "America/New_York"});
-  var defaultChan = '#default-wab';
+  var defaultChan = process.env.DEFAULT_CHAN;
 
   if (text == '') {
     return res.status(200).send('Please enter a status or a @username');

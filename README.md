@@ -1,13 +1,20 @@
-# slash-status
+Slash / Status
+==============
+
 A [Slack](https://slack.com) integration that allows users to store their temporary whereabouts and allows other users to retrieve those statuses on demand. It posts to designated channels as well, providing a live feed of where people are throughout the day. It's essentially the away message that Slack is missing.
-## commands 
+
+## commands
+
 * `/<slashcommand> <status>`: Set your status (e.g. `/<slashcommand> leaving for an offsite meeting` or `/<slashcommand> at the dentist, be back at 3.`) Don't forget to change your status “back at desk” (or BAD) after returning!
 * `/<slashcommand> @<username>`: Recall a user's most recent status.
 * `/<slashcommand> #<channel>`: Change your default output channel.
 
 ## basic usage
+
 To get started, simply clone/fork this repository and modify the `postURL` in `database.js` to link your local instance to a specific slack group. Then, initialize a postgres instance and run `node app.js`.
+
 ## detailed usage
+
 1. Clone/fork this repo
 2. `npm install`
 3. [Initialize a postgres instance](https://serversforhackers.com/using-postgresql)
@@ -17,9 +24,11 @@ To get started, simply clone/fork this repository and modify the `postURL` in `d
 7. Launch the application! (`node app.js`)
 
 ## prolonged usage
+
 The above instructions only run a local instance of the bot. For prolonged usage, an external server (like [Heroku](http://heroku.com)) is advised.
 
 ## BSD license
+
 Copyright (c) 2015, Aidan Feay (@aidanfeay)
 
 All rights reserved.

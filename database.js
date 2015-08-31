@@ -47,8 +47,9 @@ Database = {
       }
     });
   },
-  setChannel: function(res, user_name, channel){
+  setChannel: function(res, user_name, channel) {
     client.hset("user:" + user_name, "pref_chan", channel);
+    return res.status(200).send("Default channel for " + user_name + ": " + channel);
   }
 }
 

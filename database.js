@@ -15,6 +15,7 @@ client.on("error", function (err) {
 
 Database = {
   alertStatus: function(user_name, user_status, channel) {
+    console.log("Alert Status ran, but isn't doing much!");
     request.post(postUrl, { json: { text: "*" + user_name + ":* " + user_status, channel: channel}});
   },
   setStatus: function(res, user_name, user_status, timestamp){

@@ -39,7 +39,7 @@ module.exports = {
       client.query("SELECT * FROM status WHERE user_name = '"+user_name+"'", function(err, result) {
         done();
         if (result.rows[0]) {
-          request.post(postURL, { json: { text: "<" + result.rows[0].user_id + "|" + user_name ">: " + user_status, channel: result.rows[0].prefchan}});
+          request.post(postURL, { json: { text: "<" + result.rows[0].user_id + "|" + user_name + ">: " + user_status, channel: result.rows[0].prefchan}});
         } else {
           return res.status(200).send("Status for " + user_name + " has not been set.");
         }

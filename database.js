@@ -18,17 +18,10 @@ Database = {
     request.post(postUrl, { json: { text: "*" + user_name + ":* " + user_status, channel: channel}});
   },
   setStatus: function(res, user_name, user_status, timestamp){
-    console.log({"user":  user_name,
-      "status": user_status,
-      "timestamp": timestamp
-    });
-
     client.hmset("user:" + user_name, {
       "status": user_status,
       "timestamp": timestamp
     }, function (err, replies) {
-      console.log(err);
-      console.log(replies);
       client.hexists("user:" + user_name, "pref_chan", function(err,rep) {
         if(rep === 1) {
           client.hget("user:" + user_name, "pref_chan", function(err, rep) {
@@ -45,7 +38,13 @@ Database = {
   },
   getStatus: function(res, user_name, timestamp){
     client.hmget("user:" + user_name, "status", "timestamp", function(err, replies) {
-      console.log(replies);
+      var status = "Status for " + user_name;
+
+      if (replies[0]) {
+        return res.status(200).send(status + ": " + replies[0] + " _(since " + replies[1] + ")_");
+      } else {
+        return res.status(200).send(status + " has not been set.");
+      }
     });
   },
   setChannel: function(res, user_name, channel){

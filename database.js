@@ -18,10 +18,15 @@ module.exports = {
     request.post(postURL, { json: { text: "*" + user_name + ":* " + user_status, channel: channel}});
   },
   setStatus: function(res, user_name, user_status, timestamp){
-    client.hmset("user:" + user_name,
-      "status", user_status,
-      "timestamp", timestamp
-    , function (err, replies) {
+    console.log({"user":  user_name,
+      "status": user_status,
+      "timestamp": timestamp
+    });
+
+    client.hmset("user:" + user_name, {
+      "status": user_status,
+      "timestamp": timestamp
+    }, function (err, replies) {
       client.hexists("user:" + user_name, "pref_chan", function(err,rep) {
         if(rep === 1) {
           client.hget("user:" + user_name, "pref_chan", function(err, rep) {

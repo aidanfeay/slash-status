@@ -22,7 +22,7 @@
     "status"
   ],
   "author": "Aidan Feay",
-  "license": "ISC",
+  "license" : "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/alfeay/slash-status/issues"
   },
